@@ -18,16 +18,15 @@ namespace ECommerceFrontend
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
-            builder.Services.AddScoped<ProductService>();
-            builder.Services.AddScoped<UserService>();
+            builder.Services.AddScoped<ProductServices>();
+            builder.Services.AddScoped<UserServices>();
             builder.Services.AddScoped<LoggingService>();
-            builder.Services.AddScoped<EmailSendingService>();
+            builder.Services.AddScoped<emailSendingService>();
             builder.Services.AddScoped<ReviewServices>();
             builder.Services.AddScoped<OrderServices>();
-            builder.Services.AddScoped<OrderProductsServices>();
+            builder.Services.AddScoped<OrderProductServices>();
             builder.Services.AddScoped<JwtService>();
-            builder.Services.AddScoped<AuthService>();
-
+            builder.Services.AddScoped<AuthServices>();
 
             var app = builder.Build();
 
