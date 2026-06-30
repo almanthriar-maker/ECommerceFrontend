@@ -1,0 +1,40 @@
+﻿@inherits LayoutComponentBase
+
+@* Required *@
+<MudThemeProvider />
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider />
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+
+        <div class="top-row px-4">
+            <NavLink class="nav-link" href="SignUp">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> SignUp
+            </NavLink>
+            <NavLink class="nav-link" href="SignIn">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> SignIn
+            </NavLink>
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
