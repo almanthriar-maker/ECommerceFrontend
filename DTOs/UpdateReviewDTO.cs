@@ -9,5 +9,6 @@
         public string? Comment { get; set; }
 
         public DateTime? ReviewDate { get; set; }
+
     }
 }

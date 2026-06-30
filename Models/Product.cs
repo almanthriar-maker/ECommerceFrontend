@@ -1,17 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.ViewEngines;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using System.Text.Json.Serialization;
+using System.Linq;
 
 namespace ECommerceFrontend.Models;
 
 public class Product
 {
-    [key]
-
+    [Key]
     public int ProductId { get; set; }
 
     [Required]
@@ -27,9 +22,9 @@ public class Product
     [Range(0, int.MaxValue, ErrorMessage = "Stock cannot be negative")]
     public int Stock { get; set; }
 
-
     public List<Review> Reviews { get; set; } = new List<Review>();
 
+    [NotMapped]
     public decimal OverallRating
     {
         get
@@ -39,8 +34,5 @@ public class Product
 
             return (decimal)Reviews.Average(r => r.Rating);
         }
-
     }
-
 }
-

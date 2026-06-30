@@ -1,6 +1,7 @@
 using ECommerceFrontend.Components;
 using ECommerceFrontend.Models;
 using ECommerceFrontend.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceFrontend
 {
@@ -10,14 +11,23 @@ namespace ECommerceFrontend
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            //builder.Services.AddHttpClient<ProductService>(client =>
-            //{
-            //    client.BaseAddress = new Uri("https://localhost:7173/");
-            //});
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+       options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+            builder.Services.AddScoped<ProductService>();
+            builder.Services.AddScoped<UserService>();
+            builder.Services.AddScoped<LoggingService>();
+            builder.Services.AddScoped<EmailSendingService>();
+            builder.Services.AddScoped<ReviewServices>();
+            builder.Services.AddScoped<OrderServices>();
+            builder.Services.AddScoped<OrderProductsServices>();
+            builder.Services.AddScoped<JwtService>();
+            builder.Services.AddScoped<AuthService>();
+
 
             var app = builder.Build();
 

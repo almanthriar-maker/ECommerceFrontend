@@ -15,5 +15,6 @@ namespace ECommerceFrontend.DTOs
         [Range(0, int.MaxValue, ErrorMessage = "Stock cannot be negative")]
         public int Stock { get; set; }
 
+
     }
 }

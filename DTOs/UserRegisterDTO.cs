@@ -14,6 +14,7 @@ namespace ECommerceFrontend.DTOs
         ErrorMessage = "Invalid email format")]
         public string Email { get; set; }
 
+
         [Required]
         [RegularExpression(
       @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$",
